@@ -1,4 +1,4 @@
-package com.football.application;
+package com.football.ql.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
