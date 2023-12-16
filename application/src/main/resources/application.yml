@@ -1,10 +1,14 @@
 spring:
+  graphql:
+    graphiql:
+      enabled: true
+      path: /playground
   data:
     rest:
       defaultMediaType: application/json
       default-media-type: application/json
   application:
-    name: jukeboxd-api
+    name: footballql-api
   jmx:
     enabled: true
   main:
@@ -16,8 +20,8 @@ spring:
     locations: classpath:/db/migration
 
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:postgresql://localhost:5432/football_db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/football_db
     username: admin
     password: changeme
     hikari:
@@ -29,6 +33,7 @@ spring:
     hibernate:
       ddl-auto: validate
     database-platform: org.hibernate.dialect.MySQLDialect
+
 
 management:
   endpoints:
@@ -42,3 +47,7 @@ server:
   forward-headers-strategy: framework
   servlet:
     context-path: /v1
+
+football-data:
+  uri: https://api.football-data.org/v4/
+  token: a08ea0d4df8c4badb7ad75adaa5a0526

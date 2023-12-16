@@ -1,0 +1,48 @@
+type Query {
+    importLeague(leagueCode: String): Competition
+    findTeams(leagueCode: String): [Team]
+}
+
+type Competition {
+    id: ID
+    name: String
+    code: String
+    area: Area
+    teams: [Team]
+}
+
+type Area {
+    id: ID
+    name: String
+    code: String
+    flag: String
+}
+
+type Player {
+    id: ID
+    person: Person
+    current_team: Team
+}
+
+type Coach {
+    id: ID
+    person: Person
+    current_team: Team
+}
+
+type Person {
+    id: ID
+    name: String
+    dateOfBirth: String
+    nationality: String
+    game_position: String
+}
+
+type Team {
+    id: ID
+    name: String
+    shortName: String
+    tla: String
+    area: Area
+    address: String
+}

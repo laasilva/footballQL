@@ -1,10 +1,17 @@
 services:
   mysql:
-    image: 'mysql:latest'
+    image: mysql
+    container_name: footballql_container
+    restart: unless-stopped
     environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+      MYSQL_DATABASE: football_db
+      MYSQL_PASSWORD: changeme
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_USER: admin
     ports:
-      - '3306'
+      - '3306:3306'
+    volumes:
+      - mysql-volume:/var/lib/football_db
+      - ./custom.cnf:/etc/mysql/conf.d/custom.cnf
+volumes:
+  mysql-volume:

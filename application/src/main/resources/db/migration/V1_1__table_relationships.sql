@@ -1,29 +1,19 @@
-alter table sys.competition
+alter table competition
 add constraint fk_competition_area
-foreign key (area)
-references sys.area(id)
+foreign key (area) references area(id)
 on update cascade on delete cascade;
 
-alter table sys.person
-add constraint fk_person_nationality
-foreign key (nationality)
-references sys.area(id)
-on update cascade on delete cascade;
-
-alter table sys.person
-add constraint fk_person_game_position
-foreign key (game_position)
-references sys.game_position(id)
-on update cascade on delete cascade;
-
-alter table sys.player
+alter table player
 add constraint fk_player_person
-foreign key (person)
-references sys.person(id)
+foreign key (person) references person(id)
 on update cascade on delete cascade;
 
-alter table sys.coach
+alter table coach
 add constraint fk_coach_person
-foreign key (person)
-references sys.person(id)
+foreign key (person) references person(id)
+on update cascade on delete cascade;
+
+alter table team
+add constraint fk_team_coach
+foreign key (coach) references coach(id)
 on update cascade on delete cascade;
