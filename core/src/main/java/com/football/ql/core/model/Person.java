@@ -14,5 +14,5 @@ public class Person {
     String name;
     Date dateOfBirth;
     String nationality;
-    String position;
+    String gamePosition;
 }

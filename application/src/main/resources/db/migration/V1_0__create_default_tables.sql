@@ -1,43 +1,42 @@
-create table competition (
+create table public.competition (
     id BIGINT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     code VARCHAR(6) NOT NULL,
-    area BIGINT
+    coach_id BIGINT,
+    area_id BIGINT
 );
 
-create table area (
+create table public.area (
     id BIGINT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     code VARCHAR(6) NOT NULL,
     flag VARCHAR(255)
 );
 
-create table person (
-    id BIGINT PRIMARY KEY NOT NULL,
+create table public.person (
+    id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     date_of_birth DATE NOT NULL,
     nationality VARCHAR(96),
     game_position VARCHAR(96)
 );
 
-create table player (
+create table public.player (
     id BIGINT PRIMARY KEY NOT NULL,
-    person BIGINT NOT NULL,
-    current_team BIGINT
+    person_id INT NOT NULL
 );
 
-create table coach (
+create table public.coach (
     id BIGINT PRIMARY KEY NOT NULL,
-    person BIGINT NOT NULL,
-    current_team BIGINT
+    person_id INT NOT NULL
 );
 
-create table team (
+create table public.team (
     id BIGINT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     short_name VARCHAR(96),
     tla VARCHAR(3),
-    area BIGINT,
+    area_id BIGINT,
     address VARCHAR(510),
-    coach BIGINT
+    coach_id BIGINT
 );

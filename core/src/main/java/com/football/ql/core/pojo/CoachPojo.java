@@ -14,6 +14,8 @@ import java.util.Date;
 public class CoachPojo {
     Long id;
     String name;
+    String firstName;
+    String lastName;
     @JsonAdapter(DateDeserializer.class)
     Date dateOfBirth;
     String nationality;

@@ -10,16 +10,17 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring",
         injectionStrategy = InjectionStrategy.FIELD,
         collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
-public interface CoachMapper {
+public interface CoachPojoMapper {
     default Coach toModel(CoachPojo pojo) {
         Coach model = new Coach();
 
         model.setId(pojo.getId());
         model.setPerson(Person.builder()
                 .dateOfBirth(pojo.getDateOfBirth())
-                .name(pojo.getName())
+                .name(pojo.getName() == null ?
+                        String.format(pojo.getFirstName() + " " + pojo.getLastName()) : pojo.getName())
                 .nationality(pojo.getNationality())
-                .position("Coach")
+                .gamePosition("Coach")
                 .build());
 
         return model;

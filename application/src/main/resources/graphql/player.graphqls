@@ -1,5 +1,6 @@
 type Query {
     importLeague(leagueCode: String): Competition
+    findPlayers(leagueCode: String): [Player]
     findTeams(leagueCode: String): [Team]
 }
 
@@ -21,13 +22,11 @@ type Area {
 type Player {
     id: ID
     person: Person
-    current_team: Team
 }
 
 type Coach {
     id: ID
     person: Person
-    current_team: Team
 }
 
 type Person {
@@ -35,7 +34,7 @@ type Person {
     name: String
     dateOfBirth: String
     nationality: String
-    game_position: String
+    gamePosition: String
 }
 
 type Team {
@@ -45,4 +44,6 @@ type Team {
     tla: String
     area: Area
     address: String
+    coach: Coach
+    players: [Player]
 }

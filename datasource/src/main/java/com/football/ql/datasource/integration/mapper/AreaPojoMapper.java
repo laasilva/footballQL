@@ -9,6 +9,6 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring",
         injectionStrategy = InjectionStrategy.FIELD,
         collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED)
-public interface AreaMapper {
+public interface AreaPojoMapper {
     Area toModel(AreaPojo pojo);
 }
