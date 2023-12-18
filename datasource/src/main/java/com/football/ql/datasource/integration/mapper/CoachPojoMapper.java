@@ -23,6 +23,10 @@ public interface CoachPojoMapper {
                 .gamePosition("Coach")
                 .build());
 
+        if (model.getId() == null) {
+            model = null;
+        }
+
         return model;
     }
 }

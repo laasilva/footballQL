@@ -23,7 +23,7 @@ public class TeamEntity {
     private String shortName;
     @Column
     private String tla;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "area_id")
     private AreaEntity area;
     @Column

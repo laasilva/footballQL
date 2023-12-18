@@ -12,4 +12,10 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
             "JOIN FETCH t.competitions c " +
             "WHERE c.code = :leagueCode")
     List<PlayerEntity> findPlayerListByLeagueCode(String leagueCode);
+    @Query("SELECT p FROM PlayerEntity p " +
+            "JOIN FETCH p.team t " +
+            "JOIN FETCH t.competitions c " +
+            "WHERE c.code = :leagueCode AND (t.name = :teamName OR t.shortName = :teamName)")
+    List<PlayerEntity> findPlayerListByLeagueCodeAndTeam(String leagueCode, String teamName);
+    List<PlayerEntity> findAllByPersonNameLike(String playerName);
 }

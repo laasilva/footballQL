@@ -1,7 +1,18 @@
 type Query {
-    importLeague(leagueCode: String): Competition
-    findPlayers(leagueCode: String): [Player]
-    findTeams(leagueCode: String): [Team]
+    availableLeaguesForSync: [AvailableLeague]
+    findPlayers(leagueCode: String!, teamName: String): [Player]
+    findTeam(teamName: String!, sortPlayers: Boolean): Team
+    searchTeam(teamName:String!): [Team]
+    searchPlayer(playerName:String!): [Player]
+}
+
+type Mutation {
+    importLeague(leagueCode: String!): Competition
+}
+
+type AvailableLeague {
+    code: String
+    name: String
 }
 
 type Competition {

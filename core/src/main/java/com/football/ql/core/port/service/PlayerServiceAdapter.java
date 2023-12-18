@@ -5,5 +5,6 @@ import com.football.ql.core.model.Player;
 import java.util.List;
 
 public interface PlayerServiceAdapter {
-    List<Player> findPlayersByLeagueCode(String leagueCode);
+    List<Player> findPlayersByLeagueCode(String leagueCode, String teamName);
+    List<Player> findPlayerByNameLike(String playerName);
 }

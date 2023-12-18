@@ -22,6 +22,10 @@ public interface PlayerPojoMapper {
                         .gamePosition(pojo.getPosition())
             .build());
 
+        if (model.getId() == null) {
+            model = null;
+        }
+
         return model;
     }
 }

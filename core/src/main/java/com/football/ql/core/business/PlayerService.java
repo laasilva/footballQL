@@ -10,7 +10,20 @@ import java.util.List;
 public class PlayerService implements PlayerServiceAdapter {
     private final PlayerPersistenceAdapter playerPersistence;
     @Override
-    public List<Player> findPlayersByLeagueCode(String leagueCode) {
-        return playerPersistence.findPlayersByLeagueCode(leagueCode);
+    public List<Player> findPlayersByLeagueCode(String leagueCode, String teamName) {
+        if (teamName == null) {
+            return playerPersistence.findPlayersByLeagueCode(leagueCode);
+        }
+
+        return findPlayersByLeagueCodeAndTeamName(leagueCode, teamName);
+    }
+
+    @Override
+    public List<Player> findPlayerByNameLike(String playerName) {
+        return playerPersistence.findPlayerByNameLike(playerName);
+    }
+
+    private List<Player> findPlayersByLeagueCodeAndTeamName(String leagueCode, String teamName) {
+        return playerPersistence.findPlayersByLeagueCodeAndTeamName(leagueCode, teamName);
     }
 }

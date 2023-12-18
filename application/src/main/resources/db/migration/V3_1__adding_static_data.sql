@@ -1,0 +1,13 @@
+INSERT INTO public.available_leagues (code, name) VALUES ('WC', 'FIFA World Cup');
+INSERT INTO public.available_leagues (code, name) VALUES ('CL', 'UEFA Champions League');
+INSERT INTO public.available_leagues (code, name) VALUES ('BL1', 'Bundesliga');
+INSERT INTO public.available_leagues (code, name) VALUES ('DED', 'Eredivisie');
+INSERT INTO public.available_leagues (code, name) VALUES ('BSA', 'Campeonato Brasileiro Série A');
+INSERT INTO public.available_leagues (code, name) VALUES ('PD', 'Primera Division');
+INSERT INTO public.available_leagues (code, name) VALUES ('FL1', 'Ligue 1');
+INSERT INTO public.available_leagues (code, name) VALUES ('ELC', 'Championship');
+INSERT INTO public.available_leagues (code, name) VALUES ('PPL', 'Primeira Liga');
+INSERT INTO public.available_leagues (code, name) VALUES ('EC', 'European Championship');
+INSERT INTO public.available_leagues (code, name) VALUES ('SA', 'Serie A');
+INSERT INTO public.available_leagues (code, name) VALUES ('PL', 'Premier League');
+INSERT INTO public.available_leagues (code, name) VALUES ('CLI', 'Copa Libertadores');

@@ -13,6 +13,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
@@ -45,13 +46,12 @@ public class SyncCompetition {
                 .uri(uri)
                 .header("X-Auth-Token", token)
                 .exchangeToMono(resp -> {
-                    if (resp.statusCode() != HttpStatus.OK) {
-                        log.error("Error while requesting from " + uri);
-                        log.error("Status code: " + resp.statusCode());
-
-                        throw new IntegrationException(ErrorMessage.SYNC_ERROR.getCode(),
-                                ErrorMessage.SYNC_ERROR.getMessage());
+                    if (resp.statusCode() != HttpStatus.OK
+                            && resp.statusCode() != HttpStatus.CREATED
+                            && resp.statusCode() != HttpStatus.ACCEPTED) {
+                        errorHandling(resp, uri);
                     }
+
                     return resp.bodyToMono(String.class);
                 })
                 .toFuture();
@@ -68,13 +68,12 @@ public class SyncCompetition {
                 .uri(uri)
                 .header("X-Auth-Token", token)
                 .exchangeToMono(resp -> {
-                    if (resp.statusCode() != HttpStatus.OK) {
-                        log.error("Error while requesting from " + uri);
-                        log.error("Status code: " + resp.statusCode());
-
-                        throw new IntegrationException(ErrorMessage.SYNC_ERROR.getCode(),
-                                ErrorMessage.SYNC_ERROR.getMessage());
+                    if (resp.statusCode() != HttpStatus.OK
+                            && resp.statusCode() != HttpStatus.CREATED
+                            && resp.statusCode() != HttpStatus.ACCEPTED) {
+                        errorHandling(resp, uri);
                     }
+
                     return resp.bodyToMono(String.class);
                 })
                 .toFuture();
@@ -90,5 +89,18 @@ public class SyncCompetition {
     private Competition competitionJsonToModel(String response) {
         var pojo = new Gson().fromJson(response, CompetitionResponsePojo.class);
         return competitionPojoMapper.toModel(pojo);
+    }
+
+    private void errorHandling(ClientResponse resp, String uri) {
+        log.error("Error while requesting from " + uri);
+        log.error("Status code: " + resp.statusCode());
+
+        if (resp.statusCode() == HttpStatus.BAD_REQUEST) {
+            throw new IntegrationException(ErrorMessage.INVALID_LEAGUE_CODE.getCode(),
+                    ErrorMessage.INVALID_LEAGUE_CODE.getMessage());
+        }
+
+        throw new IntegrationException(ErrorMessage.SYNC_ERROR.getCode(),
+                ErrorMessage.SYNC_ERROR.getMessage());
     }
 }

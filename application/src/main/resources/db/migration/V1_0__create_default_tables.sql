@@ -16,7 +16,7 @@ create table public.area (
 create table public.person (
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
-    date_of_birth DATE NOT NULL,
+    date_of_birth DATE,
     nationality VARCHAR(96),
     game_position VARCHAR(96)
 );

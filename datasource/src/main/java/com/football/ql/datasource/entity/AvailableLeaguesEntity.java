@@ -1,6 +1,9 @@
 package com.football.ql.datasource.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,14 +14,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "area")
-public class AreaEntity {
+@Table(name = "available_leagues")
+public class AvailableLeaguesEntity {
     @Id
-    private Long id;
-    @Column
-    private String name;
-    @Column
     private String code;
     @Column
-    private String flag;
+    private String name;
 }
