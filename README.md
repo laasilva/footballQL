@@ -64,8 +64,8 @@ cd docker
 docker-compose up -d
 ```
 
-<a id="test"></a>
-### Test The Application
+<a id="maven-java"></a>
+### Maven & Java
 If you have a IDE with a configured Java/Maven workspace, all you need to do is
 make sure your Run/Debug configuration classpath is pointing to the Application
 module.
@@ -85,8 +85,8 @@ mvn spring-boot:run
 <sub>note: Make sure you navigate to the application module before running spring
 boot.</sub>
 
-<a id="maven-java"></a>
-### Maven & Java
+<a id="test"></a>
+### Test The Application
 
 If you followed the steps above correctly, you'll be able to access the GraphQL
 playground locally through [http://localhost:8080/v1/playground](http://localhost:8080/v1/playground) :tada:
