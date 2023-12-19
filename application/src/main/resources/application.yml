@@ -1,0 +1,52 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  graphql:
+    graphiql:
+      enabled: true
+      path: /playground
+  data:
+    rest:
+      defaultMediaType: application/json
+      default-media-type: application/json
+  application:
+    name: footballql-api
+  jmx:
+    enabled: true
+
+  flyway:
+    enabled: true
+    locations: classpath:/db/migration
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/football_db
+    username: admin
+    password: changeme
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 5000
+      pool-name: pool-starter
+  jpa:
+    show-sql: true # TODO: change from true to false
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: '*'
+
+server:
+  port: 8080
+  forward-headers-strategy: framework
+  servlet:
+    context-path: /v1
+
+football-data:
+  uri: https://api.football-data.org/v4/
+  token: a08ea0d4df8c4badb7ad75adaa5a0526

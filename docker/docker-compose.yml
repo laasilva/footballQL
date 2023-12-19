@@ -1,0 +1,17 @@
+version: '3.6'
+services:
+  footballql:
+    image: postgres
+    container_name: footballql
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: football_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: changeme
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-volume:/var/lib/football_db
+      - ./custom.cnf:/etc/mysql/conf.d/custom.cnf
+volumes:
+  postgres-volume:

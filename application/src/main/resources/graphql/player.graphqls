@@ -1,0 +1,60 @@
+type Query {
+    availableLeaguesForSync: [AvailableLeague]
+    findPlayers(leagueCode: String!, teamName: String): [Player]
+    findTeam(teamName: String!, sortPlayers: Boolean): Team
+    searchTeam(teamName:String!): [Team]
+    searchPlayer(playerName:String!): [Player]
+}
+
+type Mutation {
+    importLeague(leagueCode: String!): Competition
+}
+
+type AvailableLeague {
+    code: String
+    name: String
+}
+
+type Competition {
+    id: ID
+    name: String
+    code: String
+    area: Area
+    teams: [Team]
+}
+
+type Area {
+    id: ID
+    name: String
+    code: String
+    flag: String
+}
+
+type Player {
+    id: ID
+    person: Person
+}
+
+type Coach {
+    id: ID
+    person: Person
+}
+
+type Person {
+    id: ID
+    name: String
+    dateOfBirth: String
+    nationality: String
+    gamePosition: String
+}
+
+type Team {
+    id: ID
+    name: String
+    shortName: String
+    tla: String
+    area: Area
+    address: String
+    coach: Coach
+    players: [Player]
+}
