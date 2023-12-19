@@ -64,8 +64,8 @@ cd docker
 docker-compose up -d
 ```
 
-<a id="maven-java"></a>
-### Maven & Java
+<a id="test"></a>
+### Test The Application
 If you have a IDE with a configured Java/Maven workspace, all you need to do is
 make sure your Run/Debug configuration classpath is pointing to the Application
 module.
