@@ -378,21 +378,6 @@ query SearchTeam {
 **Returns**: A list of teams (same object as in [findTeam](#findTeam) - but listed)
 ___
 
-<a id="conclusion"></a>
-## Conclusion And Final Considerations
-
-I sure hope you can see that I'm very passionate about the work I do and I hope it shows in my code :blush:
-
-This project was started on 2023-12-15, and given it's short time I wasn't able to finish the unit tests, other than that, I'm very proud of it :heart_eyes:
-
-If you have any questions, feel free to reach out on any of my socials:
-
-<a href="https://linkedin.com/in/cmdrlias/"><img align="left" src="docs/linkedin.png" alt="Larissa Silva | LinkedIn" width="21px"/></a>
-<a href="https://twitter.com/nickeldumbb"><img align="left" src="docs/twitter.png" alt="nickeldumbb | Twitter" width="21px"/></a>
-<a href="https://instagram.com/larssslv"><img align="left" src="docs/instagram.png" alt="larssslv | Instagram" width="21px"/></a>
-<a href="https://twitch.tv/nickeldumb"><img align="left" src="docs/twitch.png" alt="larssslv | twitch" width="21px"/></a>
-
-<br />
 <sub>This and other Projects are available on my github page!</sub>
 
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/laasilva)
